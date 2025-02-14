@@ -9,9 +9,9 @@ package com.github.jinahya.mysql.employees.persistence;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -65,12 +65,12 @@ class Salary_SelectAll_IT
         Objects.requireNonNull(entityManager, "entityManager is null");
         final var builder = entityManager.getCriteriaBuilder();
         final var query = builder.createQuery(Salary.class);
-        // @formatter:off
+        // @formatter:on
         final var root = query.from(Salary.class);                               // FROM Salary AS e
         query.select(root);                                                      // SELECT e
         query.orderBy(                                                           // ORDER BY e.empNo ASC, e.fromDate ASC
-                builder.asc(root.get(Salary_.empNo)),
-                builder.asc(root.get(Salary_.fromDate))
+                                                                                 builder.asc(root.get(Salary_.empNo)),
+                                                                                 builder.asc(root.get(Salary_.fromDate))
         );
         // @formatter:on
         return entityManager
